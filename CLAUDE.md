@@ -282,8 +282,13 @@ Colours are Tailwind tokens in tailwind.config.js:
 - Muted text: text-ink/60
 - Products show an illustration (src/components/ProductArt.tsx) plus name, tagline, price
 - Item Selection has a category filter: All / Drinks / Food / Snacks (PRODUCT_CATEGORIES in src/data/products.ts)
+  - Compact rounded-full pill, 44px tall, active option in cocoa with cream text
+  - Sits beside the "Tap an item to add" heading at xl (≥1280px), wraps below it on narrower screens
+- Product cards: caramel/30 border, solid caramel border + ring once the item is in the cart; cocoa "×N" badge
+- Responsive: menu + cart side by side from md (768px); cart rows are one line at xl and two lines below it
+  (name + remove on top, quantity + subtotal underneath). No horizontal scrolling at any width.
 - Rounded-2xl on cards/buttons
-- Every tap target ≥ 64px height (buttons), ≥ 40px (icon controls)
+- Every tap target ≥ 64px height (buttons), ≥ 40px (icon controls and filter pills)
 - Font sizes: headings text-3xl, body text-lg minimum
 - No tiny links. No hover-only interactions. Kiosk-friendly.
 

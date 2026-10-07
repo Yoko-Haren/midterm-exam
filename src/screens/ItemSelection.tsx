@@ -21,34 +21,38 @@ export default function ItemSelection() {
       : catalog.filter((p) => PRODUCT_CATEGORIES[p.id] === filter)
 
   return (
-    <div className="grid flex-1 gap-6 md:grid-cols-2">
+    <div className="grid flex-1 gap-6 md:grid-cols-2 xl:grid-cols-[1.1fr_1fr]">
       <section>
-        <p className="eyebrow">Menu</p>
-        <h1 className="text-3xl font-bold">Tap an item to add</h1>
-        <p className="mb-4 mt-1 text-lg text-ink/60">
-          Tap a card again to add one more.
-        </p>
+        <div className="mb-4 flex flex-wrap items-end justify-between gap-x-6 gap-y-3">
+          <div className="min-w-0">
+            <p className="eyebrow">Menu</p>
+            <h1 className="text-3xl font-bold">Tap an item to add</h1>
+            <p className="mt-1 text-lg text-ink/60">
+              Tap a card again to add one more.
+            </p>
+          </div>
 
-        <div
-          role="group"
-          aria-label="Filter by category"
-          className="mb-4 grid grid-cols-4 gap-2 rounded-2xl border border-ink/10 bg-white p-1.5"
-        >
-          {CATEGORY_FILTERS.map((c) => (
-            <button
-              key={c}
-              type="button"
-              aria-pressed={filter === c}
-              onClick={() => setFilter(c)}
-              className={`min-h-[64px] rounded-xl px-2 text-lg font-semibold transition-colors active:scale-95 ${
-                filter === c
-                  ? 'bg-ink text-white'
-                  : 'text-ink/60 active:bg-linen'
-              }`}
-            >
-              {c}
-            </button>
-          ))}
+          <div
+            role="group"
+            aria-label="Filter by category"
+            className="flex max-w-full flex-wrap gap-1 rounded-full border border-caramel/30 bg-white p-1"
+          >
+            {CATEGORY_FILTERS.map((c) => (
+              <button
+                key={c}
+                type="button"
+                aria-pressed={filter === c}
+                onClick={() => setFilter(c)}
+                className={`min-h-[44px] rounded-full px-3.5 text-base font-semibold transition-colors active:scale-95 ${
+                  filter === c
+                    ? 'bg-cocoa text-cream'
+                    : 'text-ink/60 active:bg-linen'
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-4 xl:grid-cols-3">

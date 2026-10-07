@@ -19,12 +19,12 @@ export default function ProductCard({ product }: { product: Product }) {
         addItem(product)
         showToast('Product added')
       }}
-      className={`glass relative flex min-h-[120px] flex-col items-center gap-1 rounded-2xl p-4 text-center transition-transform active:scale-95 ${inCart > 0 ? 'ring-2 ring-ink' : ''}`}
+      className={`glass relative flex min-h-[120px] flex-col items-center gap-1 rounded-2xl p-4 text-center transition-transform active:scale-95 ${inCart > 0 ? 'border-caramel ring-2 ring-caramel' : 'border-caramel/30'}`}
     >
       {inCart > 0 && (
         <span
           data-testid={`badge-${product.id}`}
-          className="absolute right-3 top-3 z-10 flex h-9 min-w-[2.25rem] items-center justify-center rounded-full bg-ink px-2 text-base font-semibold text-white shadow-md"
+          className="absolute right-3 top-3 z-10 flex h-9 min-w-[2.25rem] items-center justify-center rounded-full bg-cocoa px-2 text-base font-semibold text-cream shadow-md"
         >
           <span aria-hidden="true">×</span>
           {inCart}

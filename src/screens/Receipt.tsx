@@ -2,7 +2,7 @@ import BigButton from '../components/BigButton'
 import { usePosStore } from '../store/usePosStore'
 import { peso } from '../utils/format'
 
-const RULE = 'my-4 border-dashed border-cocoa/40'
+const RULE = 'my-4 border-dashed border-black'
 
 export default function Receipt() {
   const txn = usePosStore((s) => s.lastTransaction)
@@ -24,10 +24,10 @@ export default function Receipt() {
       {txn && (
         <div
           data-testid="receipt"
-          className="rounded-2xl bg-white p-6 font-mono text-lg text-cocoa shadow-glass"
+          className="rounded-2xl bg-white p-6 font-mono text-lg text-black shadow-glass"
         >
           <h1 className="text-center text-2xl font-bold">CAMPUS STORE POS</h1>
-          <p className="text-center text-base text-cocoa/70">
+          <p className="text-center text-base">
             Official digital receipt
           </p>
           <p className="mt-3 text-center font-bold" data-testid="receipt-txn-id">
@@ -48,7 +48,7 @@ export default function Receipt() {
                   </span>
                   <span>{peso(i.price * i.qty)}</span>
                 </div>
-                <div className="text-base text-cocoa/70">
+                <div className="text-base">
                   @ {peso(i.price)} each
                 </div>
               </li>
@@ -77,7 +77,7 @@ export default function Receipt() {
           <hr className={RULE} />
 
           <p className="text-center font-bold">Payment Successful</p>
-          <p className="mt-1 text-center text-base text-cocoa/70">
+          <p className="mt-1 text-center text-base">
             Thank you. Please come again!
           </p>
         </div>

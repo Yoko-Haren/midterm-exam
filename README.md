@@ -18,12 +18,36 @@ resets for the next customer.
 - Unique, persistent transaction numbers (`TXN-YYYY-NNNNN`)
 - Digital receipt and a full reset on New Transaction
 - Toast feedback and large, high-contrast touch targets (≥ 64px)
+- Category filter on the menu: All / Drinks / Food / Snacks
+- Illustrated product pictures (inline SVG, no image files, works offline)
+- Step indicator in the header: Order → Review → Pay → Done
+- Responsive layout for desktop, tablet, and phone widths
+
+## Design
+
+A minimal light theme: plain off-white background, white cards, black text,
+and brown used only as an accent.
+
+| Token | Colour | Used for |
+| --- | --- | --- |
+| `ink` | `#141414` | Text, current step |
+| `paper` | `#F6F5F2` | Page background |
+| `cocoa` | `#624621` | Primary buttons, active filter |
+| `caramel` | `#9F6D2D` | Prices, labels, card outlines |
+| `cream` | `#F8DAB2` | Text on brown buttons |
+| `linen` | `#EEEBE4` | Picture tiles, pills |
+| `mist` | `#D2D2D2` | Dividers, inactive steps |
+| `danger` | `#B3402E` | Remove button, errors |
+
+The typeface is Inter, bundled with the app through
+`@fontsource-variable/inter` so the kiosk needs no network. The receipt uses a
+monospace font in black.
 
 ## Tech stack
 
 - React + TypeScript (Vite)
 - Zustand for state management
-- Tailwind CSS v3 for styling
+- Tailwind CSS v3 for styling, Inter typeface (@fontsource-variable/inter)
 - qrcode.react for the QR code
 - Vitest + React Testing Library (jsdom) for tests
 
@@ -50,11 +74,12 @@ npm run build
 ```
 src/
   types.ts               shared types
-  data/products.ts       hard-coded product catalog
+  data/products.ts       hard-coded product catalog, taglines, categories
   utils/format.ts        peso formatter
   utils/transaction.ts   transaction number generator
   store/usePosStore.ts   Zustand store (cart, screen, transaction, toast)
-  components/            BigButton, Toast, ProductCard, CartLine
+  components/            BigButton, Toast, ProductCard, CartLine, ProductArt,
+                         StepBar, AmountDue
   screens/               one component per kiosk screen
   tests/pos.test.tsx     instructor verification cases
 ```

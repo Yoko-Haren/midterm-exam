@@ -60,3 +60,8 @@ _TODO_
 | `feat/receipt` | `feat(receipt): digital receipt + new transaction` |
 | `test/instructor-checks` | `test: cover 15 instructor verification cases` |
 | `docs/readme-ai` | `docs: README and AI usage log` |
+| `feat/ui-refresh` | `feat(ui): warm glass theme with product illustrations` |
+| `main` | `style(receipt): use black text on the receipt` |
+| `feat/category-filter` | `feat(items): category filter and minimal black-on-plain theme` |
+| `style/filter-pill-responsive` | `style(items): compact pill filter, brown outlines, responsive cart rows` |
+| `docs/ui-update` | `docs: document filter, theme, and UI branches` |

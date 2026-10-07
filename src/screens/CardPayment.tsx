@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
+import AmountDue from '../components/AmountDue'
 import BigButton from '../components/BigButton'
 import { usePosStore } from '../store/usePosStore'
-import { peso } from '../utils/format'
 
 const PROCESSING_MS = 1500
 
@@ -24,30 +24,52 @@ export default function CardPayment() {
   }
 
   return (
-    <div className="mx-auto flex w-full max-w-xl flex-1 flex-col text-center">
-      <h1 className="mb-2 text-3xl font-bold">Card Payment</h1>
-      <p className="mb-6 text-2xl">
-        Amount due:{' '}
-        <span data-testid="amount-due" className="font-bold text-emerald-400">
-          {peso(total)}
-        </span>
+    <div className="mx-auto flex w-full max-w-xl flex-1 flex-col">
+      <p className="eyebrow">Payment · Card</p>
+      <h1 className="text-3xl font-extrabold">Card Payment</h1>
+      <p className="mb-4 mt-1 text-lg text-cocoa/70">
+        Credit and debit cards are accepted.
       </p>
 
-      <div className="rounded-2xl border border-slate-700 bg-slate-800 p-8">
-        <div className="mb-4 text-6xl" aria-hidden="true">
-          💳
-        </div>
-        <p className="text-2xl font-semibold">
+      <AmountDue label="Amount due" amount={total} className="mb-6" />
+
+      <div className="glass flex flex-col items-center rounded-2xl p-8 text-center">
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 160 110"
+          className={`mb-5 h-28 ${processing ? 'animate-pulse' : ''}`}
+        >
+          <rect x="8" y="10" width="144" height="90" rx="12" fill="#624621" />
+          <rect x="8" y="28" width="144" height="16" fill="#3B2A14" />
+          <rect x="22" y="56" width="28" height="20" rx="4" fill="#F8DAB2" />
+          <path d="M22 66h28M36 56v20" stroke="#9F6D2D" strokeWidth="2" />
+          <rect x="22" y="84" width="60" height="6" rx="3" fill="#F8DAB2" opacity="0.7" />
+          <path
+            d="M118 58a12 12 0 0 1 0 16M126 52a22 22 0 0 1 0 28M134 46a32 32 0 0 1 0 40"
+            fill="none"
+            stroke="#F8DAB2"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+        </svg>
+        <p className="text-2xl font-bold">
           Please tap, insert, or swipe your card.
+        </p>
+        <p className="mt-1 text-base text-cocoa/70">
+          Then tap Process Payment and keep your card nearby.
         </p>
       </div>
 
       {processing ? (
         <p
           role="status"
-          className="mt-6 flex min-h-[64px] animate-pulse items-center justify-center text-2xl font-bold text-emerald-400"
+          className="mt-6 flex min-h-[64px] items-center justify-center gap-3 rounded-2xl bg-cream text-2xl font-bold"
         >
-          Processing payment...
+          <span
+            aria-hidden="true"
+            className="h-7 w-7 animate-spin rounded-full border-4 border-cocoa/25 border-t-cocoa"
+          />
+          <span>Processing payment...</span>
         </p>
       ) : (
         <BigButton className="mt-6" onClick={process}>

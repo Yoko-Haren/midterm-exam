@@ -9,5 +9,25 @@ body,
 }
 
 body {
-  @apply bg-slate-900 text-slate-100 font-sans;
+  @apply bg-linen text-cocoa font-sans antialiased;
+  /* Soft warm blobs give the frosted panels something to blur. */
+  background-image:
+    radial-gradient(60rem 40rem at 0% 0%, rgba(248, 218, 178, 0.95), transparent 60%),
+    radial-gradient(50rem 40rem at 100% 100%, rgba(159, 109, 45, 0.32), transparent 60%),
+    radial-gradient(40rem 30rem at 95% 0%, rgba(210, 210, 210, 0.7), transparent 60%);
+  background-attachment: fixed;
+}
+
+@layer components {
+  .glass {
+    @apply border border-white/70 bg-white/55 shadow-glass backdrop-blur-xl;
+  }
+
+  .glass-strong {
+    @apply border border-white/80 bg-white/75 shadow-glass backdrop-blur-xl;
+  }
+
+  .eyebrow {
+    @apply text-sm font-bold uppercase tracking-[0.18em] text-caramel;
+  }
 }

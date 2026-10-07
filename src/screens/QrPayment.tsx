@@ -1,7 +1,7 @@
 import { QRCodeSVG } from 'qrcode.react'
+import AmountDue from '../components/AmountDue'
 import BigButton from '../components/BigButton'
 import { usePosStore } from '../store/usePosStore'
-import { peso } from '../utils/format'
 
 export default function QrPayment() {
   const total = usePosStore((s) => s.total())
@@ -9,22 +9,34 @@ export default function QrPayment() {
   const completeTxn = usePosStore((s) => s.completeTxn)
 
   return (
-    <div className="mx-auto flex w-full max-w-xl flex-1 flex-col items-center text-center">
-      <h1 className="mb-2 text-3xl font-bold">QR Payment</h1>
-      <p className="mb-6 text-2xl">
-        Amount due:{' '}
-        <span data-testid="amount-due" className="font-bold text-emerald-400">
-          {peso(total)}
-        </span>
+    <div className="mx-auto flex w-full max-w-xl flex-1 flex-col">
+      <p className="eyebrow">Payment · QR</p>
+      <h1 className="text-3xl font-extrabold">QR Payment</h1>
+      <p className="mb-4 mt-1 text-lg text-cocoa/70">
+        Pay from your phone in a few seconds.
       </p>
 
-      <div data-testid="qr-code" className="rounded-2xl bg-white p-6">
-        <QRCodeSVG value={`POS|AMOUNT=${total.toFixed(2)}`} size={240} />
+      <AmountDue label="Amount due" amount={total} className="mb-6" />
+
+      <div className="glass flex flex-col items-center rounded-2xl p-6 text-center">
+        <div
+          data-testid="qr-code"
+          className="rounded-2xl bg-white p-5 shadow-lg shadow-cocoa/10"
+        >
+          <QRCodeSVG
+            value={`POS|AMOUNT=${total.toFixed(2)}`}
+            size={220}
+            fgColor="#3B2A14"
+          />
+        </div>
+
+        <p className="mt-5 text-lg font-semibold">
+          Scan the QR code using your supported payment application.
+        </p>
+        <p className="mt-1 text-base text-cocoa/70">
+          After paying in your app, tap Confirm Payment.
+        </p>
       </div>
-
-      <p className="mt-6 text-lg text-slate-300">
-        Scan the QR code using your supported payment application.
-      </p>
 
       <div className="mt-6 grid w-full grid-cols-2 gap-4">
         <BigButton variant="secondary" onClick={() => go('method')}>

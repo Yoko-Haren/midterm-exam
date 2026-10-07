@@ -1,4 +1,5 @@
 import BigButton from '../components/BigButton'
+import ProductArt from '../components/ProductArt'
 import { usePosStore } from '../store/usePosStore'
 import { peso } from '../utils/format'
 
@@ -6,19 +7,24 @@ export default function OrderSummary() {
   const items = usePosStore((s) => s.items)
   const total = usePosStore((s) => s.total())
   const go = usePosStore((s) => s.go)
+  const count = items.reduce((n, i) => n + i.qty, 0)
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col">
-      <h1 className="mb-4 text-3xl font-bold">Order Summary</h1>
+      <p className="eyebrow">Review</p>
+      <h1 className="text-3xl font-extrabold">Order Summary</h1>
+      <p className="mb-4 mt-1 text-lg text-cocoa/70">
+        Please check your order before paying. Tap Back to make changes.
+      </p>
 
-      <div className="rounded-2xl border border-slate-700 bg-slate-800 p-4">
+      <div className="glass rounded-2xl p-4">
         <table className="w-full text-lg">
           <thead>
-            <tr className="border-b border-slate-700 text-left text-slate-400">
-              <th className="py-3 font-semibold">Item</th>
-              <th className="py-3 text-center font-semibold">Qty</th>
-              <th className="py-3 text-right font-semibold">Unit</th>
-              <th className="py-3 text-right font-semibold">Subtotal</th>
+            <tr className="border-b border-cocoa/15 text-left text-base uppercase tracking-wider text-cocoa/70">
+              <th className="py-3 font-bold">Item</th>
+              <th className="py-3 text-center font-bold">Qty</th>
+              <th className="py-3 text-right font-bold">Unit</th>
+              <th className="py-3 text-right font-bold">Subtotal</th>
             </tr>
           </thead>
           <tbody>
@@ -26,12 +32,17 @@ export default function OrderSummary() {
               <tr
                 key={i.id}
                 data-testid={`summary-row-${i.id}`}
-                className="border-b border-slate-700"
+                className="border-b border-cocoa/15"
               >
-                <td className="py-4 font-semibold">{i.name}</td>
-                <td className="py-4 text-center">{i.qty}</td>
-                <td className="py-4 text-right">{peso(i.price)}</td>
-                <td className="py-4 text-right font-bold">
+                <td className="py-3 font-bold">
+                  <span className="flex items-center gap-3">
+                    <ProductArt id={i.id} className="h-12 w-12 rounded-xl" />
+                    <span>{i.name}</span>
+                  </span>
+                </td>
+                <td className="py-3 text-center">{i.qty}</td>
+                <td className="py-3 text-right">{peso(i.price)}</td>
+                <td className="py-3 text-right font-bold">
                   {peso(i.price * i.qty)}
                 </td>
               </tr>
@@ -39,12 +50,15 @@ export default function OrderSummary() {
           </tbody>
           <tfoot>
             <tr>
-              <td colSpan={3} className="pt-4 text-2xl font-bold">
-                Total
+              <td colSpan={3} className="pt-4">
+                <span className="text-2xl font-bold">Total</span>
+                <span className="ml-3 text-base text-cocoa/70">
+                  {count} {count === 1 ? 'item' : 'items'}
+                </span>
               </td>
               <td
                 data-testid="summary-total"
-                className="pt-4 text-right text-3xl font-bold text-emerald-400"
+                className="pt-4 text-right text-3xl font-extrabold text-caramel"
               >
                 {peso(total)}
               </td>

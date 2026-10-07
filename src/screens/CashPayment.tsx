@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import AmountDue from '../components/AmountDue'
 import BigButton from '../components/BigButton'
 import { usePosStore } from '../store/usePosStore'
 import { peso } from '../utils/format'
@@ -37,30 +38,41 @@ export default function CashPayment() {
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col">
-      <h1 className="mb-2 text-3xl font-bold">Cash Payment</h1>
-      <p className="mb-6 text-2xl">
-        Total due:{' '}
-        <span data-testid="amount-due" className="font-bold text-emerald-400">
-          {peso(total)}
-        </span>
+      <p className="eyebrow">Payment · Cash</p>
+      <h1 className="text-3xl font-extrabold">Cash Payment</h1>
+      <p className="mb-4 mt-1 text-lg text-cocoa/70">
+        Enter the cash you are handing over.
       </p>
 
-      <label htmlFor="cash-amount" className="mb-2 text-lg text-slate-400">
+      <AmountDue label="Total due" amount={total} className="mb-6" />
+
+      <label htmlFor="cash-amount" className="mb-2 text-lg font-semibold">
         Amount paid
       </label>
-      <input
-        id="cash-amount"
-        type="number"
-        inputMode="decimal"
-        min={0}
-        step="0.01"
-        value={paid}
-        onChange={(e) => setAmount(e.target.value)}
-        placeholder="0.00"
-        className="min-h-[72px] rounded-2xl border-2 border-slate-600 bg-slate-800 px-6 text-3xl font-bold text-slate-100 placeholder:text-slate-500 focus:border-emerald-500 focus:outline-none"
-      />
+      <div className="relative">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-3xl font-bold text-caramel"
+        >
+          ₱
+        </span>
+        <input
+          id="cash-amount"
+          type="number"
+          inputMode="decimal"
+          min={0}
+          step="0.01"
+          value={paid}
+          onChange={(e) => setAmount(e.target.value)}
+          placeholder="0.00"
+          className={`min-h-[72px] w-full rounded-2xl border-2 bg-white/80 pl-14 pr-6 text-3xl font-bold text-cocoa backdrop-blur-xl placeholder:text-cocoa/40 focus:outline-none ${error ? 'border-danger' : 'border-cocoa/25 focus:border-caramel'}`}
+        />
+      </div>
+      <p className="mt-2 text-base text-cocoa/70">
+        Type the amount, or tap a quick amount below.
+      </p>
 
-      <div className="mt-4 grid grid-cols-3 gap-3">
+      <div className="mt-3 grid grid-cols-3 gap-3">
         <BigButton variant="secondary" onClick={() => setAmount(String(total))}>
           Exact
         </BigButton>
@@ -75,18 +87,24 @@ export default function CashPayment() {
         ))}
       </div>
 
-      <div className="mt-6 flex items-center justify-between rounded-2xl border border-slate-700 bg-slate-800 p-4">
-        <span className="text-2xl font-bold">Change</span>
+      <div className="glass mt-6 flex items-center justify-between rounded-2xl p-4">
+        <div>
+          <div className="text-2xl font-bold">Change</div>
+          <div className="text-base text-cocoa/70">Updates as you type</div>
+        </div>
         <span
           data-testid="change-preview"
-          className="text-3xl font-bold text-emerald-400"
+          className="text-3xl font-extrabold text-caramel"
         >
           {peso(valid ? amount - total : 0)}
         </span>
       </div>
 
       {error && (
-        <p role="alert" className="mt-4 text-lg font-semibold text-rose-400">
+        <p
+          role="alert"
+          className="mt-4 rounded-2xl border border-danger/40 bg-danger/10 px-4 py-3 text-lg font-semibold text-danger"
+        >
           {error}
         </p>
       )}

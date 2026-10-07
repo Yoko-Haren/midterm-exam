@@ -265,11 +265,18 @@ Commit after each milestone. Push to a GitHub repo named
 ## 5. UI STYLE GUIDE
 ====================================================================
 
-- Background: slate-900
-- Surface: slate-800, border-slate-700
-- Text: slate-100, muted: slate-400
-- Accent: emerald-500 (primary actions)
-- Danger: rose-500/600
+Warm light theme with glassmorphism (supersedes the slate/emerald colours
+mentioned in section 3). Colours are Tailwind tokens in tailwind.config.js:
+
+- cocoa   #624621 — text, primary buttons
+- caramel #9F6D2D — accents, prices, eyebrow labels
+- cream   #F8DAB2 — highlights, text on cocoa
+- linen   #EEEBE4 — page background
+- mist    #D2D2D2 — dividers, inactive states
+- danger  #B3402E — remove / error only
+- Surfaces: `.glass` / `.glass-strong` (frosted white, backdrop blur) from src/index.css
+- Muted text: text-cocoa/70
+- Products show an illustration (src/components/ProductArt.tsx) plus name, tagline, price
 - Rounded-2xl on cards/buttons
 - Every tap target ≥ 64px height (buttons), ≥ 40px (icon controls)
 - Font sizes: headings text-3xl, body text-lg minimum

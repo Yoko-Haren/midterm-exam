@@ -17,25 +17,45 @@ export default function PaymentSuccess() {
 
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col text-center">
-      <div className="text-7xl" aria-hidden="true">
-        ✅
-      </div>
-      <h1 className="mt-4 text-3xl font-bold text-emerald-400">
-        Payment Successful
-      </h1>
-      <p className="mt-2 text-lg text-slate-400">Transaction No.</p>
-      <p data-testid="txn-id" className="text-2xl font-bold">
-        {txn.id}
+      <span
+        aria-hidden="true"
+        className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-cocoa shadow-lg shadow-cocoa/30 ring-8 ring-cream"
+      >
+        <svg
+          viewBox="0 0 48 48"
+          className="h-12 w-12"
+          fill="none"
+          stroke="#F8DAB2"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M10 25l9 9 19-20" />
+        </svg>
+      </span>
+      <h1 className="mt-5 text-3xl font-extrabold">Payment Successful</h1>
+      <p className="mt-1 text-lg text-cocoa/70">
+        Thank you! Your order is confirmed.
       </p>
 
-      <dl className="mt-6 rounded-2xl border border-slate-700 bg-slate-800 p-4 text-left text-xl">
+      <div className="glass mx-auto mt-5 rounded-2xl px-6 py-3">
+        <p className="eyebrow">Transaction No.</p>
+        <p data-testid="txn-id" className="text-2xl font-extrabold">
+          {txn.id}
+        </p>
+      </div>
+
+      <dl className="glass mt-5 rounded-2xl px-5 py-2 text-left text-xl">
         {rows.map(([label, testId, value]) => (
           <div
             key={label}
-            className="flex items-center justify-between border-b border-slate-700 py-3 last:border-b-0"
+            className="flex items-center justify-between border-b border-cocoa/15 py-3 last:border-b-0"
           >
-            <dt className="text-slate-400">{label}</dt>
-            <dd data-testid={testId} className="font-bold">
+            <dt className="text-cocoa/70">{label}</dt>
+            <dd
+              data-testid={testId}
+              className={`font-bold ${label === 'Change' ? 'text-caramel' : ''}`}
+            >
               {value}
             </dd>
           </div>

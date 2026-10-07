@@ -2,6 +2,8 @@ import BigButton from '../components/BigButton'
 import { usePosStore } from '../store/usePosStore'
 import { peso } from '../utils/format'
 
+const RULE = 'my-4 border-dashed border-cocoa/40'
+
 export default function Receipt() {
   const txn = usePosStore((s) => s.lastTransaction)
   const resetCart = usePosStore((s) => s.resetCart)
@@ -14,20 +16,28 @@ export default function Receipt() {
 
   return (
     <div className="mx-auto flex w-full max-w-md flex-1 flex-col">
+      <p className="eyebrow">Receipt</p>
+      <p className="mb-4 text-lg text-cocoa/70">
+        Here is your digital receipt.
+      </p>
+
       {txn && (
         <div
           data-testid="receipt"
-          className="rounded-2xl bg-white p-6 font-mono text-lg text-slate-900"
+          className="rounded-2xl bg-white p-6 font-mono text-lg text-cocoa shadow-glass"
         >
           <h1 className="text-center text-2xl font-bold">CAMPUS STORE POS</h1>
-          <p className="mt-2 text-center" data-testid="receipt-txn-id">
+          <p className="text-center text-base text-cocoa/70">
+            Official digital receipt
+          </p>
+          <p className="mt-3 text-center font-bold" data-testid="receipt-txn-id">
             {txn.id}
           </p>
           <p className="text-center text-base">
             {new Date(txn.date).toLocaleString()}
           </p>
 
-          <hr className="my-4 border-dashed border-slate-400" />
+          <hr className={RULE} />
 
           <ul className="flex flex-col gap-3">
             {txn.items.map((i) => (
@@ -38,14 +48,14 @@ export default function Receipt() {
                   </span>
                   <span>{peso(i.price * i.qty)}</span>
                 </div>
-                <div className="text-base text-slate-600">
+                <div className="text-base text-cocoa/70">
                   @ {peso(i.price)} each
                 </div>
               </li>
             ))}
           </ul>
 
-          <hr className="my-4 border-dashed border-slate-400" />
+          <hr className={RULE} />
 
           <div className="flex justify-between text-xl font-bold">
             <span>TOTAL</span>
@@ -64,9 +74,12 @@ export default function Receipt() {
             <span data-testid="receipt-change">{peso(txn.change)}</span>
           </div>
 
-          <hr className="my-4 border-dashed border-slate-400" />
+          <hr className={RULE} />
 
           <p className="text-center font-bold">Payment Successful</p>
+          <p className="mt-1 text-center text-base text-cocoa/70">
+            Thank you. Please come again!
+          </p>
         </div>
       )}
 

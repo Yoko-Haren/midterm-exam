@@ -8,3 +8,13 @@ export const PRODUCTS: Product[] = [
   { id: 'bottled-water', name: 'Bottled Water', price: 20 },
   { id: 'chocolate', name: 'Chocolate', price: 25 },
 ]
+
+/** Short display blurbs, keyed by product id. Presentation only. */
+export const PRODUCT_TAGLINES: Record<string, string> = {
+  coffee: 'Freshly brewed, served hot',
+  sandwich: 'Toasted bread, fresh filling',
+  'soft-drink': 'Ice-cold and fizzy',
+  cookies: 'Baked chocolate chip',
+  'bottled-water': 'Chilled, 500 ml',
+  chocolate: 'Smooth milk chocolate bar',
+}

@@ -39,8 +39,8 @@ export default function CashPayment() {
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col">
       <p className="eyebrow">Payment · Cash</p>
-      <h1 className="text-3xl font-extrabold">Cash Payment</h1>
-      <p className="mb-4 mt-1 text-lg text-cocoa/70">
+      <h1 className="text-3xl font-bold">Cash Payment</h1>
+      <p className="mb-4 mt-1 text-lg text-ink/60">
         Enter the cash you are handing over.
       </p>
 
@@ -65,10 +65,10 @@ export default function CashPayment() {
           value={paid}
           onChange={(e) => setAmount(e.target.value)}
           placeholder="0.00"
-          className={`min-h-[72px] w-full rounded-2xl border-2 bg-white/80 pl-14 pr-6 text-3xl font-bold text-cocoa backdrop-blur-xl placeholder:text-cocoa/40 focus:outline-none ${error ? 'border-danger' : 'border-cocoa/25 focus:border-caramel'}`}
+          className={`min-h-[72px] w-full rounded-2xl border-2 bg-white pl-14 pr-6 text-3xl font-bold text-ink placeholder:text-ink/35 focus:outline-none ${error ? 'border-danger' : 'border-ink/10 focus:border-caramel'}`}
         />
       </div>
-      <p className="mt-2 text-base text-cocoa/70">
+      <p className="mt-2 text-base text-ink/60">
         Type the amount, or tap a quick amount below.
       </p>
 
@@ -90,11 +90,11 @@ export default function CashPayment() {
       <div className="glass mt-6 flex items-center justify-between rounded-2xl p-4">
         <div>
           <div className="text-2xl font-bold">Change</div>
-          <div className="text-base text-cocoa/70">Updates as you type</div>
+          <div className="text-base text-ink/60">Updates as you type</div>
         </div>
         <span
           data-testid="change-preview"
-          className="text-3xl font-extrabold text-caramel"
+          className="text-3xl font-bold text-caramel"
         >
           {peso(valid ? amount - total : 0)}
         </span>

@@ -35,16 +35,16 @@ export default function StepBar({ screen }: { screen: Screen }) {
             <span
               className={`flex h-9 w-9 items-center justify-center rounded-full text-base font-bold ${
                 state === 'current'
-                  ? 'bg-cocoa text-cream'
+                  ? 'bg-ink text-white'
                   : state === 'done'
                     ? 'bg-caramel text-white'
-                    : 'border border-mist bg-white/60 text-cocoa/60'
+                    : 'border border-mist bg-white text-ink/50'
               }`}
             >
               {state === 'done' ? '✓' : i + 1}
             </span>
             <span
-              className={`hidden text-base md:inline ${state === 'current' ? 'font-bold' : 'text-cocoa/70'}`}
+              className={`hidden text-base md:inline ${state === 'current' ? 'font-bold' : 'text-ink/60'}`}
             >
               {label}
             </span>

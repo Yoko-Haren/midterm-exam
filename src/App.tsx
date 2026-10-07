@@ -34,15 +34,15 @@ export default function App() {
         <div className="flex items-center gap-3">
           <span
             aria-hidden="true"
-            className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cocoa text-xl font-extrabold text-cream"
+            className="flex h-12 w-12 items-center justify-center rounded-2xl bg-ink text-xl font-bold text-white"
           >
             CS
           </span>
           <div>
-            <div className="text-2xl font-extrabold leading-tight">
+            <div className="text-2xl font-bold leading-tight">
               Campus Store POS
             </div>
-            <div className="text-sm text-cocoa/70">
+            <div className="text-sm text-ink/60">
               Self-service kiosk · Tap to order
             </div>
           </div>

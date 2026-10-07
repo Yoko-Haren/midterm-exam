@@ -161,7 +161,7 @@ export default function ProductArt({ id, className = '' }: Props) {
   return (
     <span
       aria-hidden="true"
-      className={`flex shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-cream to-white/70 ${className}`}
+      className={`flex shrink-0 items-center justify-center rounded-2xl bg-linen ${className}`}
     >
       <svg viewBox="0 0 120 120" className="h-[86%] w-[86%]">
         {ART[id] ?? FALLBACK}

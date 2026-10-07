@@ -12,15 +12,15 @@ export default function OrderSummary() {
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col">
       <p className="eyebrow">Review</p>
-      <h1 className="text-3xl font-extrabold">Order Summary</h1>
-      <p className="mb-4 mt-1 text-lg text-cocoa/70">
+      <h1 className="text-3xl font-bold">Order Summary</h1>
+      <p className="mb-4 mt-1 text-lg text-ink/60">
         Please check your order before paying. Tap Back to make changes.
       </p>
 
       <div className="glass rounded-2xl p-4">
         <table className="w-full text-lg">
           <thead>
-            <tr className="border-b border-cocoa/15 text-left text-base uppercase tracking-wider text-cocoa/70">
+            <tr className="border-b border-ink/10 text-left text-base uppercase tracking-wider text-ink/60">
               <th className="py-3 font-bold">Item</th>
               <th className="py-3 text-center font-bold">Qty</th>
               <th className="py-3 text-right font-bold">Unit</th>
@@ -32,7 +32,7 @@ export default function OrderSummary() {
               <tr
                 key={i.id}
                 data-testid={`summary-row-${i.id}`}
-                className="border-b border-cocoa/15"
+                className="border-b border-ink/10"
               >
                 <td className="py-3 font-bold">
                   <span className="flex items-center gap-3">
@@ -52,13 +52,13 @@ export default function OrderSummary() {
             <tr>
               <td colSpan={3} className="pt-4">
                 <span className="text-2xl font-bold">Total</span>
-                <span className="ml-3 text-base text-cocoa/70">
+                <span className="ml-3 text-base text-ink/60">
                   {count} {count === 1 ? 'item' : 'items'}
                 </span>
               </td>
               <td
                 data-testid="summary-total"
-                className="pt-4 text-right text-3xl font-extrabold text-caramel"
+                className="pt-4 text-right text-3xl font-bold text-caramel"
               >
                 {peso(total)}
               </td>

@@ -11,8 +11,8 @@ export default function QrPayment() {
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col">
       <p className="eyebrow">Payment · QR</p>
-      <h1 className="text-3xl font-extrabold">QR Payment</h1>
-      <p className="mb-4 mt-1 text-lg text-cocoa/70">
+      <h1 className="text-3xl font-bold">QR Payment</h1>
+      <p className="mb-4 mt-1 text-lg text-ink/60">
         Pay from your phone in a few seconds.
       </p>
 
@@ -33,7 +33,7 @@ export default function QrPayment() {
         <p className="mt-5 text-lg font-semibold">
           Scan the QR code using your supported payment application.
         </p>
-        <p className="mt-1 text-base text-cocoa/70">
+        <p className="mt-1 text-base text-ink/60">
           After paying in your app, tap Confirm Payment.
         </p>
       </div>

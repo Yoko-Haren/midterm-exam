@@ -15,13 +15,13 @@ export default function CartLine({ item }: { item: CartItem }) {
   return (
     <li
       data-testid={`cart-line-${item.id}`}
-      className="flex flex-wrap items-center gap-3 rounded-2xl border border-white/80 bg-white/60 p-3"
+      className="flex flex-wrap items-center gap-3 rounded-2xl border border-ink/10 bg-paper p-3"
     >
       <ProductArt id={item.id} className="h-14 w-14 rounded-xl" />
 
       <div className="min-w-[6rem] flex-1">
         <div className="text-lg font-bold">{item.name}</div>
-        <div className="text-base text-cocoa/70">{peso(item.price)} each</div>
+        <div className="text-base text-ink/60">{peso(item.price)} each</div>
       </div>
 
       <div className="flex items-center gap-2">
@@ -32,7 +32,7 @@ export default function CartLine({ item }: { item: CartItem }) {
             decQty(item.id)
             if (item.qty <= 1) showToast('Item removed')
           }}
-          className={`${ICON_BTN} border border-cocoa/20 bg-white/80 text-cocoa active:bg-cream`}
+          className={`${ICON_BTN} border border-ink/10 bg-white text-ink active:bg-linen`}
         >
           −
         </button>

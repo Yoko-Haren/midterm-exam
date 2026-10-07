@@ -18,3 +18,22 @@ export const PRODUCT_TAGLINES: Record<string, string> = {
   'bottled-water': 'Chilled, 500 ml',
   chocolate: 'Smooth milk chocolate bar',
 }
+
+export type Category = 'Drinks' | 'Food' | 'Snacks'
+
+export const CATEGORY_FILTERS: ('All' | Category)[] = [
+  'All',
+  'Drinks',
+  'Food',
+  'Snacks',
+]
+
+/** Menu category, keyed by product id. Used by the filter on Item Selection. */
+export const PRODUCT_CATEGORIES: Record<string, Category> = {
+  coffee: 'Drinks',
+  'soft-drink': 'Drinks',
+  'bottled-water': 'Drinks',
+  sandwich: 'Food',
+  cookies: 'Snacks',
+  chocolate: 'Snacks',
+}

@@ -17,7 +17,7 @@ export default function Receipt() {
   return (
     <div className="mx-auto flex w-full max-w-md flex-1 flex-col">
       <p className="eyebrow">Receipt</p>
-      <p className="mb-4 text-lg text-cocoa/70">
+      <p className="mb-4 text-lg text-ink/60">
         Here is your digital receipt.
       </p>
 

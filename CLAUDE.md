@@ -265,18 +265,23 @@ Commit after each milestone. Push to a GitHub repo named
 ## 5. UI STYLE GUIDE
 ====================================================================
 
-Warm light theme with glassmorphism (supersedes the slate/emerald colours
-mentioned in section 3). Colours are Tailwind tokens in tailwind.config.js:
+Minimal light theme: plain background, white cards, black text, brown only as
+an accent (supersedes the slate/emerald colours mentioned in section 3).
+Colours are Tailwind tokens in tailwind.config.js:
 
-- cocoa   #624621 — text, primary buttons
-- caramel #9F6D2D — accents, prices, eyebrow labels
-- cream   #F8DAB2 — highlights, text on cocoa
-- linen   #EEEBE4 — page background
+- ink     #141414 — all text, selected states
+- paper   #F6F5F2 — plain page background (no gradients)
+- cocoa   #624621 — primary buttons
+- caramel #9F6D2D — accents: prices, eyebrow labels
+- cream   #F8DAB2 — text on cocoa
+- linen   #EEEBE4 — picture tiles, pills
 - mist    #D2D2D2 — dividers, inactive states
 - danger  #B3402E — remove / error only
-- Surfaces: `.glass` / `.glass-strong` (frosted white, backdrop blur) from src/index.css
-- Muted text: text-cocoa/70
+- Font: Inter (bundled via @fontsource-variable/inter, works offline); receipt stays font-mono, black
+- Surfaces: `.glass` (white card, hairline border, soft shadow) from src/index.css
+- Muted text: text-ink/60
 - Products show an illustration (src/components/ProductArt.tsx) plus name, tagline, price
+- Item Selection has a category filter: All / Drinks / Food / Snacks (PRODUCT_CATEGORIES in src/data/products.ts)
 - Rounded-2xl on cards/buttons
 - Every tap target ≥ 64px height (buttons), ≥ 40px (icon controls)
 - Font sizes: headings text-3xl, body text-lg minimum

@@ -57,8 +57,8 @@ export default function PaymentMethod() {
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col">
       <p className="eyebrow">Payment</p>
-      <h1 className="text-3xl font-extrabold">Choose Payment Method</h1>
-      <p className="mb-4 mt-1 text-lg text-cocoa/70">
+      <h1 className="text-3xl font-bold">Choose Payment Method</h1>
+      <p className="mb-4 mt-1 text-lg text-ink/60">
         How would you like to pay today?
       </p>
 
@@ -89,7 +89,7 @@ export default function PaymentMethod() {
             </span>
             <span className="flex-1">
               <span className="block text-2xl font-bold">{m.label}</span>
-              <span className="block text-base text-cocoa/70">{m.hint}</span>
+              <span className="block text-base text-ink/60">{m.hint}</span>
             </span>
             <span aria-hidden="true" className="text-3xl text-caramel">
               ›

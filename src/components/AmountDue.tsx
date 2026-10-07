@@ -15,7 +15,7 @@ export default function AmountDue({ label, amount, className = '' }: Props) {
       <span className="font-semibold">{label}:</span>
       <span
         data-testid="amount-due"
-        className="text-3xl font-extrabold text-caramel"
+        className="text-3xl font-bold text-caramel"
       >
         {peso(amount)}
       </span>

@@ -348,6 +348,29 @@ describe('POS kiosk — instructor checks', () => {
     ])
     expect(second.total).toBe(25)
   })
+
+  it('16. category filter shows All / Drinks / Food / Snacks and keeps the cart', () => {
+    render(<App />)
+    const shown = () =>
+      screen.getAllByTestId(/^product-/).map((el) => el.dataset.testid)
+
+    addProduct('coffee')
+    tap('Drinks')
+    expect(tapTarget('Drinks')).toHaveAttribute('aria-pressed', 'true')
+    expect(shown()).toEqual([
+      'product-coffee',
+      'product-soft-drink',
+      'product-bottled-water',
+    ])
+    tap('Food')
+    expect(shown()).toEqual(['product-sandwich'])
+    tap('Snacks')
+    expect(shown()).toEqual(['product-cookies', 'product-chocolate'])
+    addProduct('cookies')
+    tap('All')
+    expect(shown()).toHaveLength(6)
+    expect(screen.getByTestId('cart-total')).toHaveTextContent('₱70.00')
+  })
 })
 
 function tapTarget(name: string) {

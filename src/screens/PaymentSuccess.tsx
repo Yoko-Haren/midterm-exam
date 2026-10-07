@@ -33,14 +33,14 @@ export default function PaymentSuccess() {
           <path d="M10 25l9 9 19-20" />
         </svg>
       </span>
-      <h1 className="mt-5 text-3xl font-extrabold">Payment Successful</h1>
-      <p className="mt-1 text-lg text-cocoa/70">
+      <h1 className="mt-5 text-3xl font-bold">Payment Successful</h1>
+      <p className="mt-1 text-lg text-ink/60">
         Thank you! Your order is confirmed.
       </p>
 
       <div className="glass mx-auto mt-5 rounded-2xl px-6 py-3">
         <p className="eyebrow">Transaction No.</p>
-        <p data-testid="txn-id" className="text-2xl font-extrabold">
+        <p data-testid="txn-id" className="text-2xl font-bold">
           {txn.id}
         </p>
       </div>
@@ -49,9 +49,9 @@ export default function PaymentSuccess() {
         {rows.map(([label, testId, value]) => (
           <div
             key={label}
-            className="flex items-center justify-between border-b border-cocoa/15 py-3 last:border-b-0"
+            className="flex items-center justify-between border-b border-ink/10 py-3 last:border-b-0"
           >
-            <dt className="text-cocoa/70">{label}</dt>
+            <dt className="text-ink/60">{label}</dt>
             <dd
               data-testid={testId}
               className={`font-bold ${label === 'Change' ? 'text-caramel' : ''}`}

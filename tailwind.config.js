@@ -3,7 +3,20 @@ export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: [
+          '"Inter Variable"',
+          'Inter',
+          'system-ui',
+          '-apple-system',
+          '"Segoe UI"',
+          'Roboto',
+          'sans-serif',
+        ],
+      },
       colors: {
+        ink: '#141414',
+        paper: '#F6F5F2',
         cocoa: '#624621',
         caramel: '#9F6D2D',
         cream: '#F8DAB2',
@@ -12,7 +25,7 @@ export default {
         danger: '#B3402E',
       },
       boxShadow: {
-        glass: '0 8px 32px rgba(98, 70, 33, 0.14)',
+        glass: '0 1px 2px rgba(20, 20, 20, 0.04), 0 8px 24px rgba(20, 20, 20, 0.06)',
       },
     },
   },

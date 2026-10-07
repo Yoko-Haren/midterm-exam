@@ -26,8 +26,8 @@ export default function CardPayment() {
   return (
     <div className="mx-auto flex w-full max-w-xl flex-1 flex-col">
       <p className="eyebrow">Payment · Card</p>
-      <h1 className="text-3xl font-extrabold">Card Payment</h1>
-      <p className="mb-4 mt-1 text-lg text-cocoa/70">
+      <h1 className="text-3xl font-bold">Card Payment</h1>
+      <p className="mb-4 mt-1 text-lg text-ink/60">
         Credit and debit cards are accepted.
       </p>
 
@@ -55,7 +55,7 @@ export default function CardPayment() {
         <p className="text-2xl font-bold">
           Please tap, insert, or swipe your card.
         </p>
-        <p className="mt-1 text-base text-cocoa/70">
+        <p className="mt-1 text-base text-ink/60">
           Then tap Process Payment and keep your card nearby.
         </p>
       </div>
@@ -67,7 +67,7 @@ export default function CardPayment() {
         >
           <span
             aria-hidden="true"
-            className="h-7 w-7 animate-spin rounded-full border-4 border-cocoa/25 border-t-cocoa"
+            className="h-7 w-7 animate-spin rounded-full border-4 border-ink/10 border-t-cocoa"
           />
           <span>Processing payment...</span>
         </p>
